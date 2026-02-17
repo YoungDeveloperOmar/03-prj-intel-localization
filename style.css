@@ -1,0 +1,161 @@
+
+:root {
+  --intel-blue: #0068b5;
+  --bg: #f6f8fb;
+  --text: #111827;
+  --muted: #4b5563;
+  --card: #ffffff;
+  --border: #e5e7eb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+/* Make images responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Improve focus visibility for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid rgba(0, 104, 181, 0.45);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+header {
+  background: linear-gradient(135deg, #0b1220, #0a2a4a);
+  color: #fff;
+  padding: 3.25rem 1.25rem;
+}
+
+header > div {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+header img {
+  width: 90px;
+  margin-bottom: 1rem;
+}
+
+header h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+header p {
+  margin: 0;
+  max-width: 70ch;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1.05rem;
+}
+
+
+/* Target the timeline section specifically: it's the first <section> after <header> */
+header + section {
+  max-width: 1100px;
+  margin: 2.25rem auto;
+  padding: 0 1.25rem 2rem;
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+/* Each card is a direct child div */
+header + section > div {
+  flex: 0 0 280px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1rem;
+  box-shadow: 0 6px 18px rgba(17, 24, 39, 0.06);
+  scroll-snap-align: start;
+}
+
+/* Card headings */
+header + section > div h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--intel-blue);
+}
+
+header + section > div h3 {
+  margin: 0.25rem 0 0.75rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+/* Card images */
+header + section > div img {
+  border-radius: 10px;
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  background: #dbeafe;
+  margin-bottom: 0.75rem;
+}
+
+/* Card body text */
+header + section > div p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Nice scrollbar (optional) */
+header + section::-webkit-scrollbar {
+  height: 10px;
+}
+header + section::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
+}
+header + section::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+section.container .border.rounded-3.bg-body {
+  box-shadow: 0 6px 18px rgba(17, 24, 39, 0.05);
+}
+
+a.link-primary:hover {
+  text-decoration: underline !important;
+  text-underline-offset: 4px;
+}
+
+.text-muted {
+  color: #4b5563 !important;
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 2.5rem 1.1rem;
+  }
+
+  header img {
+    width: 76px;
+  }
+
+  header + section > div {
+    flex-basis: 85%;
+  }
+}
